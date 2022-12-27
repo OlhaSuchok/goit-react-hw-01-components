@@ -1,7 +1,18 @@
 import PropTypes from 'prop-types';
+import {
+  UserImage,
+  UserInfo,
+  UserInfoName,
+  UserDescriptionWrapper,
+  UserWrapper,
+  StatsList,
+  StatsItem,
+  StatsName,
+  StatsInfo,
+} from './Profile.styled';
 
 export default function Profile({
-  username,
+  usersname,
   tag,
   location,
   avatar,
@@ -10,38 +21,38 @@ export default function Profile({
   views,
 }) {
   return (
-    <div class="profile">
-      <div class="description">
-        <img src={avatar} alt="User avatar" class="avatar" />
-        <p class="name">{username}</p>
-        <p class="tag">{tag}</p>
-        <p class="location">{location}</p>
-      </div>
+    <UserWrapper>
+      <UserDescriptionWrapper>
+        <UserImage src={avatar} alt="User avatar" className="avatar" />
+        <UserInfoName>{usersname}</UserInfoName>
+        <UserInfo>@{tag}</UserInfo>
+        <UserInfo>{location}</UserInfo>
+      </UserDescriptionWrapper>
 
-      <ul class="stats">
-        <li>
-          <span class="label">Followers</span>
-          <span class="quantity">{followers}</span>
-        </li>
-        <li>
-          <span class="label">Views</span>
-          <span class="quantity">{views}</span>
-        </li>
-        <li>
-          <span class="label">Likes</span>
-          <span class="quantity">{likes}</span>
-        </li>
-      </ul>
-    </div>
+      <StatsList>
+        <StatsItem>
+          <StatsName>Followers</StatsName>
+          <StatsInfo>{followers}</StatsInfo>
+        </StatsItem>
+        <StatsItem>
+          <StatsName>Views</StatsName>
+          <StatsInfo>{views}</StatsInfo>
+        </StatsItem>
+        <StatsItem>
+          <StatsName>Likes</StatsName>
+          <StatsInfo>{likes}</StatsInfo>
+        </StatsItem>
+      </StatsList>
+    </UserWrapper>
   );
 }
 
 Profile.propTypes = {
-  username: PropTypes.string,
-  tag: PropTypes.string,
-  location: PropTypes.string,
-  avatar: PropTypes.string,
-  likes: PropTypes.number,
-  followers: PropTypes.number,
-  views: PropTypes.number,
+  usersname: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  likes: PropTypes.number.isRequired,
+  followers: PropTypes.number.isRequired,
+  views: PropTypes.number.isRequired,
 };

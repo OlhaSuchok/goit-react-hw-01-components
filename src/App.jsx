@@ -6,12 +6,13 @@ import user from './user.json';
 import data from './data.json';
 import friends from './friends.json';
 import transactions from './transactions.json';
+import { theme } from 'constants/theme';
 
 export default function App() {
   return (
     <div>
       <Profile
-        username={user.username}
+        usersname={user.usersname}
         tag={user.tag}
         location={user.location}
         avatar={user.avatar}
@@ -19,7 +20,7 @@ export default function App() {
         followers={user.stats.followers}
         views={user.stats.views}
       />
-      <Statistics title={data[0].label} stats={data[0].percentage} />
+      <Statistics title="Upload stats" stats={data} />
       <FriendList friends={friends} />
       <TransactionHistory items={transactions} />
     </div>
