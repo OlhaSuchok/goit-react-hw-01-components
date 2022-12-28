@@ -7,22 +7,27 @@ import data from './data.json';
 import friends from './friends.json';
 import transactions from './transactions.json';
 import { theme } from 'constants/theme';
+import { Box } from 'components/Box/Box';
 
 export default function App() {
   return (
     <div>
-      <Profile
-        usersname={user.usersname}
-        tag={user.tag}
-        location={user.location}
-        avatar={user.avatar}
-        likes={user.stats.likes}
-        followers={user.stats.followers}
-        views={user.stats.views}
-      />
-      <Statistics title="Upload stats" stats={data} />
-      <FriendList friends={friends} />
-      <TransactionHistory items={transactions} />
+      <Box bg="#f4fdfc">
+        <div>
+          <Profile
+            usersname={user.usersname}
+            tag={user.tag}
+            location={user.location}
+            avatar={user.avatar}
+            likes={user.stats.likes}
+            followers={user.stats.followers}
+            views={user.stats.views}
+          />
+          <Statistics title="Upload stats" stats={data} />
+          <FriendList friends={friends} />
+          <TransactionHistory items={transactions} />
+        </div>
+      </Box>
     </div>
   );
 }
